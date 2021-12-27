@@ -10,6 +10,7 @@
     <br><br>
     <form action="./../../app/cities/update.php" method="POST">
       <input type="hidden" name="id" value="<?= $row['city_id'] ?>">
+      <label for="">City : </label>
       <div class="form-group">
         <input type="text" required name="city" value="<?= $row['city'] ?>" class="form-control" placeholder="Yogyakarta etc">
       </div>

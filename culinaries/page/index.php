@@ -52,7 +52,12 @@
         </li>
       </ul>
       <div class="form-inline pr-15 my-2 my-lg-0">
-        <a href="./../auth/auth.php" class="btn btn-app">Masuk</a>
+        <?php session_start(); ?>
+        <?php if($_SESSION['sess_id']): ?>
+            <a href="./../admin/" class="btn btn-app">Dashboard</a>
+        <?php else: ?>
+            <a href="./../auth/auth.php" class="btn btn-app">Masuk</a>
+        <?php endif ?>
       </div>
     </div>
   </nav>

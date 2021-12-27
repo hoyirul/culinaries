@@ -53,7 +53,12 @@
         </li>
       </ul>
       <div class="form-inline pr-15 my-2 my-lg-0">
-        <a href="./../../auth/auth.php" class="btn btn-app">Masuk</a>
+        <?php session_start(); ?>
+        <?php if($_SESSION['sess_id']): ?>
+            <a href="./../../admin/" class="btn btn-app">Dashboard</a>
+        <?php else: ?>
+            <a href="./../../auth/auth.php" class="btn btn-app">Masuk</a>
+        <?php endif ?>
       </div>
     </div>
   </nav>
@@ -108,17 +113,17 @@
       <div class="row">
         <?php $query = ''; ?>
         <?php if(empty($_GET['category_id']) || empty($_GET['city_id']) || empty($_GET['key'])): ?>
-          <?php $query = "select * from culinary cl inner join cities ct on ct.city_id = cl.city_id inner join categories ca on ca.category_id = cl.category_id"; ?>
+          <?php $query = "select * from culinary cl inner join cities ct on ct.city_id = cl.city_id inner join categories ca on ca.category_id = cl.category_id order by cl.id desc"; ?>
         <?php else: ?>
-          <?php $query = "select * from culinary cl inner join cities ct on ct.city_id = cl.city_id inner join categories ca on ca.category_id = cl.category_id where cl.category_id = $_GET[category_id] or cl.city_id = $_GET[city_id] or cl.title like '%$_GET[key]%'"; ?>
+          <?php $query = "select * from culinary cl inner join cities ct on ct.city_id = cl.city_id inner join categories ca on ca.category_id = cl.category_id where cl.category_id = $_GET[category_id] or cl.city_id = $_GET[city_id] or cl.title like '%$_GET[key]%' order by cl.id desc"; ?>
         <?php endif ?>
         <?php $sql = mysqli_query($conn, $query); ?>
         <?php foreach($sql as $row): ?>
 
-        <div class="col-md-4">
+        <div class="col-md-4 mb-3">
           <div class="card" style="width: 100%;">
             <img class="card-img-top" src="./../../app/culinaries/<?= $row['img']; ?>" alt="Card image cap">
-            <div class="card-body">
+            <div style="font-size: 11pt !important" class="card-body">
               <h5 class="card-title"><?= $row['title'] ?></h5>
               <span class="badge badge-primary"><?= $row['city'] ?> </span>
               <span class="badge badge-success"><?= $row['category'] ?> </span>
@@ -128,7 +133,6 @@
             </div>
           </div>
         </div>
-
         <?php endforeach ?>
       </div>
     </div>

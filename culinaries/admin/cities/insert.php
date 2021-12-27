@@ -5,6 +5,7 @@
     <h6 class="float-left">Add Data City</h6>
     <br><br>
     <form action="./../../app/cities/insert.php" method="POST">
+      <label for="">City : </label>
       <div class="form-group">
         <input type="text" required name="city" class="form-control" placeholder="Yogyakarta etc">
       </div>

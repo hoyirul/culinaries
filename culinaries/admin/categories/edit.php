@@ -10,6 +10,7 @@
     <br><br>
     <form action="./../../app/categories/update.php" method="POST">
       <input type="hidden" name="id" value="<?= $row['category_id'] ?>">
+      <label for="">Category : </label>
       <div class="form-group">
         <input type="text" required name="category" value="<?= $row['category'] ?>" class="form-control" placeholder="Yogyakarta etc">
       </div>
