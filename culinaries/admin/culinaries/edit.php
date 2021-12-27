@@ -44,13 +44,13 @@
 
         <label for="">Content : </label>
         <div class="form-group">
-          <textarea style="height: 400px" name="content" id="editor"><?= $row['content'] ?></textarea>
+          <textarea style="height: 400px" required name="content" id="editor"><?= $row['content'] ?></textarea>
         </div>
 
         <label for="">Image : </label>
         <div class="form-group">
           <span><?= $row['img'] ?></span>
-          <input type="file" name="img" class="form-control">
+          <input type="file" name="img" required class="form-control">
         </div>
 
         <div class="form-group">

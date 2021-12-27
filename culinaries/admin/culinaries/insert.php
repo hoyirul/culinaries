@@ -40,16 +40,16 @@
 
       <label for="">Content : </label>
       <div class="form-group">
-        <textarea style="height: 400px" name="content" id="editor"></textarea>
+        <textarea style="height: 400px" required name="content" id="editor"></textarea>
       </div>
 
       <label for="">Image : </label>
       <div class="form-group">
-        <input type="file" name="img" class="form-control">
+        <input type="file" name="img" required class="form-control">
       </div>
 
       <div class="form-group">
-        <button class="btn btn-info btn-md">Submit</button>
+        <button type="submit" class="btn btn-info btn-md">Submit</button>
       </div>
     </form>
   </div>
