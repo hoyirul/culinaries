@@ -12,5 +12,3 @@
     }else{
         header('location:./../../admin/cities/index.php?msg=errors');
     }
-
-
